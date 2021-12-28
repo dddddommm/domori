@@ -1,0 +1,17 @@
+.gradle/
+.idea/
+build/
+out/
+local/
+config/
+
+*.class
+*.bin
+*.db
+*.sqlite3
+
+*.*#
+*.*~
+
+.classpath
+.project

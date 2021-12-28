@@ -1,0 +1,129 @@
+import org.gradle.internal.os.OperatingSystem
+
+plugins {
+    id 'java'
+    id "org.openjfx.javafxplugin" version "0.0.10"
+    id "org.beryx.jlink" version "2.24.2"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+def applicationName = 'DojinnoMori'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+application {
+//    mainClassName = ''
+//    mainModule = ''
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14
+    implementation group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.30'
+
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    implementation group: 'org.jsoup', name: 'jsoup', version: '1.14.3'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+clean {
+    delete "src/main/generated"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+javafx {
+    version = '17.0.0.1'
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing' ]
+}
+
+task deleteInstallerTemp(type: Delete) {
+    delete "$buildDir/installer"
+}
+
+jpackage.dependsOn deleteInstallerTemp
+jlink {
+    options = ['--compress', '2', '--no-header-files', '--no-man-pages']
+
+    launcher {
+        name = applicationName
+    }
+
+    forceMerge 'javafx'
+
+    jpackage {
+        outputDir = "distribution"
+
+        if (OperatingSystem.current().isWindows()) {
+            installerType = "msi"
+            imageOptions = [
+                    '--icon', "${projectDir}/src/main/resources/icon/icon.ico",
+            ]
+            installerOptions = [
+                    '--vendor', applicationName,
+                    '--app-version', "${project.version}",
+                    '--verbose',
+//                    '--win-upgrade-uuid', '',
+                    '--win-dir-chooser',
+                    '--win-shortcut',
+                    '--win-menu',
+                    '--win-menu-group', applicationName,
+                    '--temp', "$buildDir/installer",
+//                    '--resource-dir', "${projectDir}/buildres/windows",
+//                    '--file-associations', "${projectDir}/buildres/windows/bibtexAssociations.properties"
+            ]
+        }
+
+        if (OperatingSystem.current().isLinux()) {
+            imageOptions = [
+                    '--icon', "${projectDir}/src/main/resources/icon/icon.png",
+                    '--app-version', "${project.version}",
+            ]
+            installerOptions = [
+                    '--verbose',
+                    '--vendor', applicationName,
+                    '--app-version', "${project.version}",
+                    // '--temp', "$buildDir/installer",
+                    '--linux-menu-group', 'Office;',
+                    '--linux-rpm-license-type', 'BSD-3',
+                    // '--license-file', "${projectDir}/LICENSE.md",
+                    '--description', 'description',
+                    '--linux-shortcut'
+            ]
+        }
+
+        if (OperatingSystem.current().isMacOsX()) {
+//            imageOptions = [
+//                    '--icon', "${projectDir}/src/main/resources/icon/icon.icns"
+//            ]
+            skipInstaller = true
+            installerOptions = [
+                    '--verbose',
+                    '--vendor', applicationName,
+                    '--mac-package-identifier', applicationName,
+                    '--mac-package-name', applicationName,
+                    '--app-version', "${project.version}"
+            ]
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

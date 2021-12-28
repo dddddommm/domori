@@ -1,0 +1,2074 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>すいちゃんの可愛くてちょっとエッチなイラスト本 | 同人の森 | エロ同人誌・エロ漫画がタダで【50000冊】以上も読める！！</title>
+    <meta name="description" itemprop="description" content="">
+    <link href="/img/icon-32x32.png" sizes="32x32" type="image/x-icon" rel="icon"/><link href="/img/icon-32x32.png" sizes="32x32" type="image/x-icon" rel="shortcut icon"/>    <link href="/img/icon-192x192.png" sizes="192x192" type="image/x-icon" rel="icon"/><link href="/img/icon-192x192.png" sizes="192x192" type="image/x-icon" rel="shortcut icon"/>    <meta name="msapplication-TileImage" content="img/icon-270x270.png"/>    <link rel="stylesheet" href="/css/font-awesome.min.css" media="all"/>    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="/css/style.css" media="all"/>    <link rel="stylesheet" href="/css/jquery-ui.min.css" media="all"/>    <script src="/js/jquery.js"></script>    <script src="/js/jquery-ui.min.js"></script>    <script src="/js/lazysizes.min.js"></script>    <script src="/js/ls.unveilhooks.js"></script>    <link rel="stylesheet" href="/content/style/style.css"/>
+    <script src="/js/main.js?20190802"></script>
+    <link rel="canonical" href="http://doujinnomori.com/comics/detail?uuid=9a06d4af-872b-4874-b3b0-5f18ee4efaf6" />
+
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCTTPXX');</script>
+    <!-- End Google Tag Manager -->
+    <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"TOP","item":"http:\/\/doujinnomori.com\/"},{"@type":"ListItem","position":2,"name":"\u539f\u4f5c","item":"http:\/\/doujinnomori.com\/products"},{"@type":"ListItem","position":3,"name":"\u30d0\u30fc\u30c1\u30e3\u30ebYouTuber","item":"http:\/\/doujinnomori.com\/comics\/search?type=1&id=1620"},{"@type":"ListItem","position":4,"name":"\u3059\u3044\u3061\u3083\u3093\u306e\u53ef\u611b\u304f\u3066\u3061\u3087\u3063\u3068\u30a8\u30c3\u30c1\u306a\u30a4\u30e9\u30b9\u30c8\u672c","item":"http:\/\/doujinnomori.com\/comics\/detail?uuid=9a06d4af-872b-4874-b3b0-5f18ee4efaf6&type=prev"}]}</script></head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCTTPXX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>
+    var isLead;
+    var data = [];
+    $(document).ready(function () {
+        var form = $("#freeword-serach-form_1");
+
+        if (!isLead || isLead == undefined) {
+            isLead = true;
+            $.ajax({
+                url: '/api/suggest',
+                type: 'get',
+                dataType: 'json',
+                scriptCharset: 'utf-8',
+                async: true
+            }).done(function (response) {
+                data = response;
+            }).fail(function (response) {
+                console.log(response);
+            });
+        }
+        $('#freeword-search-box_1').autocomplete({
+            source: function (request, response) {
+
+                var results = $.grep(data, function (elem, index) {
+                    return kanaToHira(elem.n.toLowerCase()).indexOf(kanaToHira(request.term.toLowerCase())) === 0;
+                });
+                // response(results.slice(0, this.options.maxResults));
+                results = results.slice(0, this.options.maxResults);
+
+                var datamap = results.map(function (i) {
+                    return {
+                        label: i.n + ' | ' + i.tn,
+                        value: i.n,
+                        id: i.i,
+                        type: i.ti
+                    }
+                });
+                response(datamap);
+            },
+            maxResults: 5,
+            autoFocus: true,
+            position: {
+                my: 'left+0 top+4',
+            },
+            delay: 500,
+            minLength: 1,
+            select: function (event, ui) {
+                if (ui.item != null) {
+                    form.find('#freeword-search-id').val(ui.item.id);
+                    form.find('#freeword-search-type').val(ui.item.type);
+                    form.find("#freeword-search-box_1").val(ui.item.value);
+                    form.submit();
+                }
+            }
+        });
+        $('#freeword-search-box_1').keypress(function () {
+            form.find('#freeword-search-id').val(null);
+            form.find('#freeword-search-type').val(null);
+        });
+
+        function kanaToHira (str) {
+            return str.replace(/[\u30a1-\u30f6]/g, function (match) {
+                var chr = match.charCodeAt(0) - 0x60;
+                return String.fromCharCode(chr);
+            })
+        }
+
+        form.submit(function () {
+            if (form.find('#freeword-search-id').val() === '' &&
+                form.find('#freeword-search-type').val() === '') {
+                form.find('#freeword-search-type').attr('disabled', 'disabled');
+                form.find('#freeword-search-id').attr('disabled', 'disabled');
+                form.attr('action', '/comics/free-search');
+            } else {
+
+                form.find('#freeword-search-type').removeAttr('disabled');
+                form.find('#freeword-search-id').removeAttr('disabled');
+                form.attr('action', '/comics/search');
+            }
+        });
+
+    });
+
+    // クッキーに保存する
+    function registerSearchHistoryFromMenu () {
+        let date = new Date();
+        let cookieKey = 'history-' + date.getTime();
+        let searchWordElm = document.getElementsByClassName('search__box__menu');
+        let cookieValue = searchWordElm[0].value;
+        document.cookie = cookieKey + "=" + cookieValue;
+    }
+
+</script>
+<div class="global-menu">
+    <header itemscope="" itemtype="http://schema.org/WPHeader" class="header">
+        <div class="header__body">
+            <div class="header__logo"><a href="/"><img src="/img/title.png" alt="同人の森"></a></div>
+            <ul class="header__list">
+                <li class="header__item sp-none"><a class="header__link--pc bgcolor__yellow" href="/?type=favorite"><i class="fas fa-star"></i>お気に入り作品</a></li>
+                <li class="header__item sp-none"><a class="header__link--pc bgcolor__red" href="/cdn-cgi/l/email-protection#98fcf7edf2f1f6f6f7f5f7eaf1d8ecedecf9f6f7ecf9b6fbf7f5"><i class="fas fa-paper-plane"></i>お問い合わせ・削除依頼</a></li>
+                <li class="header__item pc-none"><a class="header__link--sp" href="/?type=favorite"><i class="fas fa-star"></i>お気に入り</a></li>
+                <li class="header__item pc-none"><span id="search-btn" class="header__link--sp"><i class="fas fa-search"></i>検索</span></li>
+            </ul>
+        </div>
+    </header>
+    <div id="search-sp" class="block hidden">
+        <form class="search" method="get" id="freeword-serach-form_1" onsubmit="return registerSearchHistoryFromMenu()">
+            <input type="hidden" id="freeword-search-type" name="type"/>
+            <input type="hidden" id="freeword-search-id" name="id"/>
+            <input type="search" id="freeword-search-box_1" name="keyword" value="" placeholder="キーワードを入力" class="search__box search__box__menu" required>
+            <button type="submit" class="search__button" id="freeword-search" value="検索"><i class="fas fa-search"></i></button>
+        </form>
+
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    $(document).ready(function () {
+        let cookiesArr = document.cookie.split("; ");
+        let searchHistoryFromCookie = {
+            url: '',
+            word: '',
+            createdAt: ''
+        };
+        let searchHistoryList = [];
+        // 検索履歴のデータをローカルストレージから取得する
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key) && key.indexOf('history-') === 0) {
+                searchHistoryList.push(JSON.parse(localStorage.getItem(key)));
+            }
+        }
+        // オブジェクトをorder順に並び替える
+        searchHistoryList.sort(sortObjects('createdAt', 'desc'));
+
+        // cookieの検索履歴登録
+        // ただし、すでに登録されている検索ワードは登録しない
+        for (let cookie of cookiesArr) {
+            if (cookie.indexOf('history-') === 0) {
+                let cookieTimestampAndWord = cookie.replace('history-', '');
+                let cookieArr = cookieTimestampAndWord.split('=');
+                let existedWord = false;
+                for (let searchHistory of searchHistoryList) {
+                    if (searchHistory.word === cookieArr[1]) {
+                        existedWord = true
+                    }
+                }
+                if (existedWord === false) {
+                    searchHistoryFromCookie.url = '/comics/free-search?keyword=' + cookieArr[1];
+                    searchHistoryFromCookie.word = cookieArr[1];
+                    searchHistoryFromCookie.createdAt = cookieArr[0];
+                    localStorage.setItem('history-' + cookieArr[0], JSON.stringify(searchHistoryFromCookie));
+                    searchHistoryList.unshift(searchHistoryFromCookie);
+                }
+                document.cookie = "history-" + cookieArr[0] + "=; max-age=0"
+            }
+        }
+
+        // 履歴は5個まで
+        if (searchHistoryList.length >= 6) {
+            let targetKey = 'history-' + searchHistoryList[5].createdAt;
+            console.log('targetKey', targetKey)
+            localStorage.removeItem(targetKey);
+            searchHistoryList.pop();
+        }
+
+        let pgdat = '';
+        if (!searchHistoryList.length) {
+            pgdat += '<li class="link-group__item">';
+            pgdat += '<a class="link-group__link">';
+            pgdat += '<span>検索履歴はありません。</span>';
+            pgdat += '</a>';
+            pgdat += '</li>';
+        } else {
+            for (let searchHistory of searchHistoryList) {
+                pgdat += '<li class="link-group__item">';
+                pgdat += '<a class="link-group__link" href="' + searchHistory.url + '">';
+                pgdat += '<span>' + searchHistory.word + '</span><i class="fas fa-angle-right"></i>';
+                pgdat += '</a>';
+                pgdat += '</li>';
+            }
+        }
+
+        $('#menu-show-new').append(pgdat);
+    });
+
+    function sortObjects(key, order='asc') {
+        return function(a, b) {
+            if(!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+                return 0;
+            }
+
+            const varA = (typeof a[key] === 'string') ?
+                a[key].toUpperCase() : a[key];
+            const varB = (typeof b[key] === 'string') ?
+                b[key].toUpperCase() : b[key];
+
+            let comparison = 0;
+            if (varA > varB) {
+                comparison = 1;
+            } else if (varA < varB) {
+                comparison = -1;
+            }
+            return (
+                (order == 'desc') ? (comparison * -1) : comparison
+            );
+        };
+    }
+</script>
+
+        <div class="tab">
+            <input id="menu-btn-soaring" type="radio" name="menu-tabs" class="tab__switch" checked="checked" />
+            <input id="menu-btn-popularity" type="radio" name="menu-tabs" class="tab__switch">
+            <input id="menu-btn-new" type="radio" name="menu-tabs" class="tab__switch">
+
+            <ul class="tab__btn">
+                <li class="tab__label1"><label for="menu-btn-soaring">話題</label></li>
+                <li class="tab__label2"><label for="menu-btn-popularity">人気・定番</label></li>
+                <li class="tab__label3"><label for="menu-btn-new">履歴</label></li>
+            </ul>
+
+            <ul id="menu-show-soaring" class="link-group__list">
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=3&id=655">
+                        <span>2020夏イベント</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="http://doujinnomori.com/comics/search?type=1&id=1198">
+                        <span>Re:ゼロから始める異世界生活</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=1&id=2326">
+                        <span>彼女、お借りします</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=1&id=2007">
+                        <span>宇崎ちゃんは遊びたい!</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=2&id=16093">
+                        <span>北条加蓮</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul id="menu-show-popularity" class="link-group__list">
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=3&id=261">
+                        <span>寝取られ(NTR)</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=3&id=614">
+                        <span>催眠・洗脳</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=3&id=355">
+                        <span>快楽堕ち</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=3&id=463">
+                        <span>イチャラブ・あまあま</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="link-group__item">
+                    <a class="link-group__link" href="/comics/search?type=3&id=199">
+                        <span>フルカラー</span><i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul id="menu-show-new" class="link-group__list"></ul>
+        </div>
+
+        <span class="global-menu__delete"><i id="search-delete" class="fas fa-times-circle"></i></span>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="menu">
+        <nav>
+            <ul class="menu__list">
+                <li class="menu__item sp-none">
+                    <a class="menu__link" href="/">TOP</a>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="/ranking">人気</a></li>
+                <li class="menu__item"><a class="menu__link" href="/#new">新着</a></li>
+                <li class="menu__item"><a class="menu__link" href="/products?initial=あ">原作</a></li>
+                <li class="menu__item"><a class="menu__link" href="/tags/tag-groups">タグ</a></li>
+                <li class="menu__item sp-none"><a class="menu__link" href="/?type=feature">特集</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="banner sp-none">
+        <ul class="banner__list">
+            <li class="banner__item"><a href="/comics/search?type=3&id=720"><img class="banner__img" src="/content/img/ac2_640-200.jpg"></a></li>
+            <li class="banner__item"><a href="/comics/search?type=3&id=655"><img class="banner__img" src="/content/img/2020summer_640-200.png"></a></li>
+            <li class="banner__item"><a href="/comics/search?type=3&id=654"><img class="banner__img" src="/content/img/c98_640-200_2.png"></a></li>
+        </ul>
+    </div>
+
+    <div id="contents" class="column">
+        <main id="main">
+
+            <script>
+    $(function() {
+      var keys = "I)NGQqdJe_#hO=rYURcCXwifD7xMLFntpAT2EPWvH83s-@%/b,5Z$.a!Bj6(m[>oklgy:Kz]9V<4;S1u"
+      var word = ")GQNI"
+      var pic = "N"
+      $(window).on('load scroll', function() {
+        var value = $(this).scrollTop()
+        var relation = $('div#list').offset().top
+        if (value > relation) {
+          $('nav.gnav').css({ 'position': 'fixed', 'z-index': '3', 'transform': 'translateY(0%)', 'top': '' })
+        } else if (value < 120) {
+          $('nav.gnav').css({
+            'position': 'absolute',
+            'z-index': '',
+            'transition': '',
+            'transform': '',
+            'top': '3rem'
+          })
+          $('#body').css({ 'padding-top': '7.5rem' })
+          $('form.gnav-search').addClass('gnav-search-js1')
+        } else {
+          $('nav.gnav').css({
+            'position': 'absolute',
+            'z-index': '',
+            'transition': '.3s',
+            'transform': 'translateY(-100%)',
+            'top': ''
+          })
+          $('form.gnav-search').css({ 'display': 'none' })
+          $('div.search-open').removeClass('search-menu')
+        }
+      })
+      var divC = $('div.sidebars div.ld_attribute').outerHeight()
+      if (divC > 300) {
+        $('div.sidebars div.ld_attribute').addClass('grad-wrap')
+        $('div.sidebars div.ld_attribute div.ld_body').addClass('grad-item')
+        $('div.sidebars div.ld_attribute div.ld_body').addClass('grad-item')
+        $('div.sidebars div.ld_attribute div.ld_body').before('<input id="trigger3" class="grad-trigger" type="checkbox"><label class="grad-btn" for="trigger3"><div class="grad-btn-top"></div></label>')
+      }
+
+
+      var co = 5;
+      //$('div.<?//= $pagesClassHash ?>//').find('img.<?//= $classHash ?>//:not(.<?//= $fakeImageHash ?>//)').each(function(index, element) {
+      //  var imgloader = new Image()
+      //  imgloader.onload = function() {
+      //    co -= 1
+      //    if (co === 0) {
+      //      l()
+      //    }
+      //  }
+      //  imgloader.src = $(element).attr('src')
+      //})
+      $('div.pywHS4bN').find('img.zElQzfL1').each(function(index, element) {
+        if ($(element).css('display') === 'inline') {
+          var imgloader = new Image()
+          imgloader.onload = function() {
+            co -= 1
+            if (co === 0) {
+              l()
+            }
+          }
+          imgloader.src = $(element).attr('src')
+        }
+      })
+
+
+
+      function l() {
+        var c = []
+        var ch = []
+        var counter = 0;
+        $('div.pywHS4bN').first().css('position', 'relative')
+        $('div.pywHS4bN').find('img.zElQzfL1').each(function(index, element) {
+          if ($(element).css('display') === 'inline') {
+            c[keys.indexOf(word.charAt(index - counter))] = element
+          } else {
+            ch[counter] = element
+            counter++;
+          }
+        })
+        var h = 0
+        c.forEach(function(e) {
+          $(e).css('top', h)
+          $(e).css('position', 'absolute')
+          $(e).css('visibility', 'visible')
+          $(e).css('display', 'inline')
+          h = h + $(e).height() + 30
+        })
+        ch.forEach(function(e){
+          $(e).css('top', (h / 5) * Math.round(Math.random() * 5))
+          $(e).css('position', 'absolute')
+          $(e).css('visibility', 'visible')
+          $(e).css('display', 'inline')
+        })
+        $('div.pywHS4bN').height(h)
+      }
+    })
+
+    // 既存のお気に入り登録表示変更
+    $(document).ready(function () {
+        let favoriteList = [];
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                favoriteList.push(key);
+            }
+        }
+
+        for (let favoriteKey of favoriteList) {
+            let iElms = document.getElementsByClassName('favorite_i_' + favoriteKey);
+            let spanElms = document.getElementsByClassName('favorite_span_' + favoriteKey);
+            let aElms = document.getElementsByClassName('favorite_a_' + favoriteKey);
+            for (let elm of iElms) {
+                elm.classList.add('color__light-glay');
+            }
+            for (let elm of spanElms) {
+                elm.innerHTML = elm.innerHTML.replace('登録', '済み');
+            }
+            for (let elm of aElms) {
+                elm.innerHTML = elm.innerHTML.replace('登録', '済み');
+            }
+        }
+    });
+
+    function changeFavoriteStatusForDetail(obj) {
+        // 登録済みの場合
+        if (localStorage.getItem(obj.dataset.params) !== null) {
+            localStorage.removeItem(obj.dataset.params);
+            let iElms = document.getElementsByClassName('favorite_i_' + obj.dataset.params);
+            let aElms = document.getElementsByClassName('favorite_a_' + obj.dataset.params);
+            for (let elm of iElms) {
+                elm.classList.remove('color__light-glay');
+            }
+            for (let elm of aElms) {
+                elm.innerHTML = elm.innerHTML.replace('済み', '登録');
+            }
+
+        } else {
+            // 変数定義
+            let date = new Date();
+            let timestamp = date.getTime();
+            let favorite = {
+                uuid: obj.dataset.params,
+                name: "",
+                url: "http://doujinnomori.com/comics/detail?uuid=9a06d4af-872b-4874-b3b0-5f18ee4efaf6&type=prev",
+                thumbnailUrl: "http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/cb22da45bb02c130e3fa2cf7c163ec6150fd754b44cb78f95c6abf1fcfeaf25c.jpg",
+                tags: [],
+                createdAt: timestamp
+                };
+            if (favorite.url.indexOf('&type=prev') === -1) {
+                favorite.url += '&type=prev';
+            }
+            let name = document.getElementsByClassName('favorite_title_' + obj.dataset.params);
+            let tags = document.getElementsByClassName('favorite_tag_' + obj.dataset.params);
+
+            // お気に入り情報作成
+            favorite.name = name[0].innerText;
+            for (let tag of tags) {
+                favorite.tags.push(tag.innerText);
+            }
+
+            // ローカルストレージ登録
+            localStorage.setItem(obj.dataset.params, JSON.stringify(favorite));
+
+            // ボタン変更
+            let iElms = document.getElementsByClassName('favorite_i_' + obj.dataset.params);
+            let aElms = document.getElementsByClassName('favorite_a_' + obj.dataset.params);
+            for (let elm of iElms) {
+                elm.classList.add('color__light-glay');
+            }
+            for (let elm of aElms) {
+                elm.innerHTML = elm.innerHTML.replace('登録', '済み');
+            }
+        }
+        event.stopPropagation();
+    }
+
+    function changeFavoriteStatus(obj) {
+        // 登録済みの場合
+        if (localStorage.getItem(obj.dataset.params) !== null) {
+            localStorage.removeItem(obj.dataset.params);
+            let iElms = document.getElementsByClassName('favorite_i_' + obj.dataset.params);
+            let spanElms = document.getElementsByClassName('favorite_span_' + obj.dataset.params);
+            for (let elm of iElms) {
+                elm.classList.remove('color__light-glay');
+            }
+            for (let elm of spanElms) {
+                elm.innerHTML = elm.innerHTML.replace('済み', '登録');
+            }
+
+        //
+        } else {
+            // 変数定義
+            let date = new Date();
+            let timestamp = date.getTime();
+            let favorite = {
+                uuid: obj.dataset.params,
+                name: "",
+                url: "",
+                thumbnailUrl: "",
+                tags: [],
+                createdAt: timestamp};
+            let elms = document.getElementsByClassName(obj.dataset.params);
+
+            // お気に入り情報作成
+            for (let elm of elms) {
+                if (elm.nodeName == "A") {
+                    favorite.url = elm.href;
+                }
+                if (elm.nodeName == "SPAN") {
+                    favorite.name = elm.innerText;
+                }
+                if (elm.nodeName == "IMG") {
+                    favorite.thumbnailUrl = elm.src;
+                }
+                if (elm.nodeName == "LI") {
+                    favorite.tags.push(elm.innerText);
+                }
+            }
+
+            // ローカルストレージ登録
+            localStorage.setItem(obj.dataset.params, JSON.stringify(favorite));
+
+            // ボタン変更
+            let iElms = document.getElementsByClassName('favorite_i_' + obj.dataset.params);
+            let spanElms = document.getElementsByClassName('favorite_span_' + obj.dataset.params);
+            for (let elm of iElms) {
+                elm.classList.add('color__light-glay');
+            }
+            for (let elm of spanElms) {
+                elm.innerHTML = elm.innerHTML.replace('登録', '済み');
+            }
+        }
+    }
+
+    function showModal(imageId) {
+        let popElm = document.getElementsByClassName('pop');
+        showModalDetail(imageId);
+        popElm[0].style.visibility = "visible";
+        let bodyElm = document.getElementsByTagName('body');
+        bodyElm[0].style.position = 'fixed';
+    }
+
+    function changeModal(imageId) {
+        showModalDetail(imageId);
+    }
+
+    function showModalDetail(imageId) {
+        let popImgElm = document.getElementsByClassName('pop__img');
+        let popScrollImgs = document.getElementsByClassName('pop-scroll__img');
+        popImgElm[0].src = popScrollImgs[imageId].src;
+        popImgElm[0].dataset.id = imageId;
+        let currentPageText = document.getElementsByClassName('pop__foot');
+        let pageTextDenominator = currentPageText[0].innerHTML.split('/');
+        deleteScrollImgActive();
+        popScrollImgs[imageId].classList.add('active');
+        currentPageText[0].innerHTML = imageId + 1 + "/" + pageTextDenominator[1] + "/" + pageTextDenominator[2];
+    }
+
+    function deleteScrollImgActive() {
+        let popScrollImgs = document.getElementsByClassName('pop-scroll__img');
+        for (let img of popScrollImgs) {
+            img.classList.remove('active');
+        }
+    }
+
+    $(document).on('click','.pop__content--prev', function(e){
+        deleteScrollImgActive();
+        let totalImageCount = document.getElementsByClassName('pop-scroll__img').length;
+        let popScrollImgs = document.getElementsByClassName('pop-scroll__img');
+        let popImgElm = document.getElementsByClassName('pop__img');
+        let currentPageText = document.getElementsByClassName('pop__foot');
+        let pageTextDenominator = currentPageText[0].innerHTML.split('/');
+        let currentNumber = Number(popImgElm[0].dataset.id);
+        let targetNumber;
+
+        if (currentNumber === 0) {
+            if (totalImageCount >= 10) {
+                targetNumber = 9;
+            } else {
+                targetNumber = totalImageCount -1;
+            }
+            popImgElm[0].dataset.id = targetNumber;
+            popImgElm[0].src = popScrollImgs[targetNumber].src;
+            popScrollImgs[targetNumber].classList.add('active');
+
+        } else {
+            targetNumber = currentNumber -1;
+            popImgElm[0].dataset.id = targetNumber;
+            popImgElm[0].src = popScrollImgs[targetNumber].src;
+            popScrollImgs[targetNumber].classList.add('active');
+        }
+        currentPageText[0].innerHTML = targetNumber + 1 + "/" + pageTextDenominator[1] + "/" + pageTextDenominator[2];
+    });
+
+    $(document).on('click','.pop__content--next', function(e){
+        deleteScrollImgActive();
+        let totalImageCount = document.getElementsByClassName('pop-scroll__img').length;
+        let popScrollImgs = document.getElementsByClassName('pop-scroll__img');
+        let popImgElm = document.getElementsByClassName('pop__img');
+        let currentPageText = document.getElementsByClassName('pop__foot');
+        let pageTextDenominator = currentPageText[0].innerHTML.split('/');
+        let currentNumber = Number(popImgElm[0].dataset.id);
+        let targetNumber;
+
+        if (totalImageCount-1 === currentNumber) {
+            targetNumber = 0;
+            popImgElm[0].dataset.id = targetNumber;
+            popImgElm[0].src = popScrollImgs[targetNumber].src;
+            popScrollImgs[targetNumber].classList.add('active');
+
+        } else {
+            targetNumber = currentNumber +1;
+            popImgElm[0].dataset.id = targetNumber;
+            popImgElm[0].src = popScrollImgs[targetNumber].src;
+            popScrollImgs[targetNumber].classList.add('active');
+        }
+        currentPageText[0].innerHTML = targetNumber + 1 + "/" + pageTextDenominator[1] + "/" + pageTextDenominator[2];
+    });
+
+
+    $(document).on('click','.pop__overlay',function(){
+        let popElm = document.getElementsByClassName('pop');
+        popElm[0].style.visibility = "hidden";
+        let bodyElm = document.getElementsByTagName('body');
+        bodyElm[0].style.position = '';
+    });
+
+    $(document).on('click','#return__to__detail',function(){
+        let popElm = document.getElementsByClassName('pop');
+        popElm[0].style.visibility = "hidden";
+        let bodyElm = document.getElementsByTagName('body');
+        bodyElm[0].style.position = '';
+    });
+
+    $(document).on('click','.pop__body',function(e){
+        e.stopPropagation();
+    });
+</script>
+            <div class="ad_margin">
+            </div>
+
+            <h1 class="view__heading pc-none favorite_title_9a06d4af-872b-4874-b3b0-5f18ee4efaf6">すいちゃんの可愛くてちょっとエッチなイラスト本</h1>
+            <div class="view">
+                <div class="view__left">
+                    <img class="view__img 9a06d4af-872b-4874-b3b0-5f18ee4efaf6" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/cb22da45bb02c130e3fa2cf7c163ec6150fd754b44cb78f95c6abf1fcfeaf25c.jpg">
+                </div>
+                <div class="view__right">
+                    <div>
+                        <h1 class="view__heading sp-none">すいちゃんの可愛くてちょっとエッチなイラスト本</h1>
+                        <div class="tag">
+                            <ul  class="tag__list">
+                                <li class="tag__item">
+                                    <a href="/comics/search?type=1&amp;id=1620" class="tag__link">バーチャルYouTuber</a>                        </li>
+                                <li class="tag__item">
+                                    <a href="/comics/search?type=2&amp;id=20244" class="tag__link favorite_tag_9a06d4af-872b-4874-b3b0-5f18ee4efaf6">星街すいせい</a>                            </li>
+                                <li class="tag__item">
+                                    <a href="/comics/search?type=3&amp;id=199" class="tag__link favorite_tag_9a06d4af-872b-4874-b3b0-5f18ee4efaf6">フルカラー</a>                            </li>
+                                <li class="tag__item">
+                                    <a href="/comics/search?type=3&amp;id=207" class="tag__link favorite_tag_9a06d4af-872b-4874-b3b0-5f18ee4efaf6">貧乳</a>                            </li>
+                                <li class="tag__item">
+                                    <a href="/comics/search?type=3&amp;id=295" class="tag__link favorite_tag_9a06d4af-872b-4874-b3b0-5f18ee4efaf6">イラスト集</a>                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="button sp-none">
+                        <ul class="button__flex">
+                            <li class="button__item3"><a class="bgcolor__yellow" href="/comics/detail?uuid=9a06d4af-872b-4874-b3b0-5f18ee4efaf6"><i class="fas fa-book-reader"></i>閲覧する</a></li>
+                            <li class="button__item3" data-params="9a06d4af-872b-4874-b3b0-5f18ee4efaf6" onclick="changeFavoriteStatusForDetail(this)">
+                                <a class="bgcolor__black favorite_a_9a06d4af-872b-4874-b3b0-5f18ee4efaf6"><i class="fas fa-star color__yellow favorite_i_9a06d4af-872b-4874-b3b0-5f18ee4efaf6"></i>お気に入り登録</a>
+                            </li>
+                            <li class="button__item3"><a class="bgcolor__red" href="/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/c0cc675717b5c45e04cecaf96fe7aa067238263c270c19431025c30efc392675.pdf" target="_blank"><i class="fas fa-download"></i>ダウンロード</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll bgcolor__light-glay sp-none">
+                <ul class="scroll__list">
+                    <li class="scroll__item" onclick="showModal(0)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/cb22da45bb02c130e3fa2cf7c163ec6150fd754b44cb78f95c6abf1fcfeaf25c.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(1)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/209dbcc0dbdc6cd982019f9034b194efbc779a8f548f82e948087689297ef318.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(2)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/d6834d03715b525e2d254326a0c36fa99de655e1f3b3369e93ee48ba90341d51.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(3)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/7f851400f33fbb6ae343dd97f7430cdb86cc4b3f63342849e713191cedfa6b5b.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(4)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/8af8e3933537355d99fbe32f24a17b6b2d96d83ca341cb02cb49c75d948bdaef.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(5)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/9dcf422e78cbe0a4a445d1c5df066661d7e3d234f425b01086338aeb9576020f.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(6)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/6d7bb87beb9646beb1bddc198acbf3049bbfcdf9022faaad40d6f2e57bb9cc5c.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(7)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/f2c017f1e15f949965bbeeee2b807c42b10e7cf9ed0e52b83607ced046431413.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(8)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/9617a49d862025368f59ff7b41847933f673b2e479db4d5e53f798a1f7f5ed27.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll__item" onclick="showModal(9)">
+                        <a>
+                            <img class="scroll__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/e5a567a76f70cdfea1d848fd28910878648fcedcfed16f773786c161e9e9e3f0.jpg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="scroll-sm bgcolor__light-glay pc-none">
+                <ul class="scroll-sm__list">
+                    <li class="scroll-sm__item" onclick="showModal(0)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/cb22da45bb02c130e3fa2cf7c163ec6150fd754b44cb78f95c6abf1fcfeaf25c.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(1)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/209dbcc0dbdc6cd982019f9034b194efbc779a8f548f82e948087689297ef318.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(2)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/d6834d03715b525e2d254326a0c36fa99de655e1f3b3369e93ee48ba90341d51.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(3)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/7f851400f33fbb6ae343dd97f7430cdb86cc4b3f63342849e713191cedfa6b5b.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(4)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/8af8e3933537355d99fbe32f24a17b6b2d96d83ca341cb02cb49c75d948bdaef.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(5)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/9dcf422e78cbe0a4a445d1c5df066661d7e3d234f425b01086338aeb9576020f.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(6)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/6d7bb87beb9646beb1bddc198acbf3049bbfcdf9022faaad40d6f2e57bb9cc5c.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(7)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/f2c017f1e15f949965bbeeee2b807c42b10e7cf9ed0e52b83607ced046431413.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(8)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/9617a49d862025368f59ff7b41847933f673b2e479db4d5e53f798a1f7f5ed27.jpg">
+                        </a>
+                    </li>
+                    <li class="scroll-sm__item" onclick="showModal(9)">
+                        <a>
+                            <img class="scroll-sm__img border2__white" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/e5a567a76f70cdfea1d848fd28910878648fcedcfed16f773786c161e9e9e3f0.jpg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pop">
+                <div class="pop__overlay">
+                    <div class="pop__body">
+                        <div class="pop__head">
+                            <span class="pop__head--left text__bold">サンプル閲覧</span>
+                            <span id="return__to__detail"><i class="fas fa-reply"></i>戻る</span>
+                        </div>
+                        <div class="pop__button">
+                            <ul class="button__flex">
+                                <li class="button__item3"><a class="bgcolor__yellow" href="/comics/detail?uuid=9a06d4af-872b-4874-b3b0-5f18ee4efaf6"><i class="fas fa-book-reader"></i>全ページ読む</a></li>
+                                <li class="button__item3" data-params="9a06d4af-872b-4874-b3b0-5f18ee4efaf6" onclick="changeFavoriteStatusForDetail(this)">
+                                    <a class="bgcolor__black favorite_a_9a06d4af-872b-4874-b3b0-5f18ee4efaf6"><i class="fas fa-star color__yellow favorite_i_9a06d4af-872b-4874-b3b0-5f18ee4efaf6"></i>お気に入り登録</a>
+                                </li>
+                                <li class="button__item3"><a class="bgcolor__red" href="/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/c0cc675717b5c45e04cecaf96fe7aa067238263c270c19431025c30efc392675.pdf" target="_blank"><i class="fas fa-download"></i>ダウンロード</a></li>
+                            </ul>
+                        </div>
+                        <div class="pop__content">
+                            <span class="pop__content--prev"><i class="fas fa-angle-left"></i></span>
+                            <img data-id="0" class="pop__img" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/cb22da45bb02c130e3fa2cf7c163ec6150fd754b44cb78f95c6abf1fcfeaf25c.jpg">
+                            <span class="pop__content--next"><i class="fas fa-angle-right"></i></span>
+                        </div>
+                        <div id="pop-scroll" class="pop-scroll">
+                            <ul class="pop-scroll__list">
+                                <li class="pop-scroll__item" onclick="changeModal(0)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/cb22da45bb02c130e3fa2cf7c163ec6150fd754b44cb78f95c6abf1fcfeaf25c.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(1)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/209dbcc0dbdc6cd982019f9034b194efbc779a8f548f82e948087689297ef318.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(2)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/d6834d03715b525e2d254326a0c36fa99de655e1f3b3369e93ee48ba90341d51.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(3)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/7f851400f33fbb6ae343dd97f7430cdb86cc4b3f63342849e713191cedfa6b5b.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(4)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/8af8e3933537355d99fbe32f24a17b6b2d96d83ca341cb02cb49c75d948bdaef.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(5)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/9dcf422e78cbe0a4a445d1c5df066661d7e3d234f425b01086338aeb9576020f.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(6)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/6d7bb87beb9646beb1bddc198acbf3049bbfcdf9022faaad40d6f2e57bb9cc5c.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(7)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/f2c017f1e15f949965bbeeee2b807c42b10e7cf9ed0e52b83607ced046431413.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(8)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/9617a49d862025368f59ff7b41847933f673b2e479db4d5e53f798a1f7f5ed27.jpg" class="pop-scroll__img">
+                                </li>
+                                <li class="pop-scroll__item" onclick="changeModal(9)">
+                                    <img src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/e5a567a76f70cdfea1d848fd28910878648fcedcfed16f773786c161e9e9e3f0.jpg" class="pop-scroll__img">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pop__foot">
+                            1/10<span class="text__small">ページ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ad_margin">
+            </div>
+
+            <div class="button pc-none">
+                <ul class="button__flex">
+                    <li class="button__item3"><a class="bgcolor__yellow" href="/comics/detail?uuid=9a06d4af-872b-4874-b3b0-5f18ee4efaf6"><i class="fas fa-book-reader"></i>閲覧する</a></li>
+                    <li class="button__item3" data-params="9a06d4af-872b-4874-b3b0-5f18ee4efaf6" onclick="changeFavoriteStatusForDetail(this)">
+                        <a class="bgcolor__black favorite_a_9a06d4af-872b-4874-b3b0-5f18ee4efaf6"><i class="fas fa-star color__yellow favorite_i_9a06d4af-872b-4874-b3b0-5f18ee4efaf6"></i>お気に入り登録</a>
+                    </li>
+                    <li class="button__item3"><a class="bgcolor__red" href="/comics/klhu8hb8uyighjkb387ouiyhuihh3da/9a06d4af-872b-4874-b3b0-5f18ee4efaf6/c0cc675717b5c45e04cecaf96fe7aa067238263c270c19431025c30efc392675.pdf" target="_blank"><i class="fas fa-download"></i>ダウンロード</a></li>
+                </ul>
+            </div>
+
+            <div class="ad_margin">
+                <div align="center">
+                    <!--  ad tags Size: 300x250 ZoneId:90007100-->
+                    <script type="text/javascript" src="https://js.waqool.com/t/007/100/a90007100.js"></script>
+                </div>    </div>
+
+
+            <div class="ad_margin">
+            </div>
+            <h2 class="heading2"><span class="heading2__text">この同人誌に似た作品を見る</span></h2>
+            <div class="comic">
+                <ul class="comic__list">
+                    <li class="comic__item list-d93f6a4e-bac4-4c00-a91d-17ec9fdc6380">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=d93f6a4e-bac4-4c00-a91d-17ec9fdc6380&type=prev" class="d93f6a4e-bac4-4c00-a91d-17ec9fdc6380" target="_blank">
+                                <figure>
+                                    <img class="comic__img d93f6a4e-bac4-4c00-a91d-17ec9fdc6380" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/d93f6a4e-bac4-4c00-a91d-17ec9fdc6380/c1234c5a21321a96a2b0295f74955b84aebb5ed74de761cd3d6d0f109b721dc1.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_d93f6a4e-bac4-4c00-a91d-17ec9fdc6380" data-params="d93f6a4e-bac4-4c00-a91d-17ec9fdc6380" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_d93f6a4e-bac4-4c00-a91d-17ec9fdc6380"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=d93f6a4e-bac4-4c00-a91d-17ec9fdc6380&type=prev" target="_blank">
+                            <span class="comic__text d93f6a4e-bac4-4c00-a91d-17ec9fdc6380">★街す◯せいとベッドで無茶苦茶えっちしまくるCG集！</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item d93f6a4e-bac4-4c00-a91d-17ec9fdc6380"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-ea8b1478-585a-4142-aaf4-9a2f1c954f01">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=ea8b1478-585a-4142-aaf4-9a2f1c954f01&type=prev" class="ea8b1478-585a-4142-aaf4-9a2f1c954f01" target="_blank">
+                                <figure>
+                                    <img class="comic__img ea8b1478-585a-4142-aaf4-9a2f1c954f01" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/ea8b1478-585a-4142-aaf4-9a2f1c954f01/b6fdc69a6c2b3023cf6baa5eb690c6ff9549d156349e18c919107c7b6025917f.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_ea8b1478-585a-4142-aaf4-9a2f1c954f01" data-params="ea8b1478-585a-4142-aaf4-9a2f1c954f01" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_ea8b1478-585a-4142-aaf4-9a2f1c954f01"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=ea8b1478-585a-4142-aaf4-9a2f1c954f01&type=prev" target="_blank">
+                            <span class="comic__text ea8b1478-585a-4142-aaf4-9a2f1c954f01">リゼるる催眠</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item ea8b1478-585a-4142-aaf4-9a2f1c954f01"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-7aa12ed0-5b1e-45cc-a598-7a5fcac29562">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=7aa12ed0-5b1e-45cc-a598-7a5fcac29562&type=prev" class="7aa12ed0-5b1e-45cc-a598-7a5fcac29562" target="_blank">
+                                <figure>
+                                    <img class="comic__img 7aa12ed0-5b1e-45cc-a598-7a5fcac29562" src="http://cdn.doujinnomori.com/comics/fdjkyiuuio3y489uhihr3uiohjfdowe/7aa12ed0-5b1e-45cc-a598-7a5fcac29562/5a1b391531a964a306427dd18cb57e7916672a2201d976357294b788cb920792.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_7aa12ed0-5b1e-45cc-a598-7a5fcac29562" data-params="7aa12ed0-5b1e-45cc-a598-7a5fcac29562" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_7aa12ed0-5b1e-45cc-a598-7a5fcac29562"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=7aa12ed0-5b1e-45cc-a598-7a5fcac29562&type=prev" target="_blank">
+                            <span class="comic__text 7aa12ed0-5b1e-45cc-a598-7a5fcac29562">催眠サメ</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 7aa12ed0-5b1e-45cc-a598-7a5fcac29562"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-bd06e0b4-7dd9-4601-b31f-14f4735ad50d">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=bd06e0b4-7dd9-4601-b31f-14f4735ad50d&type=prev" class="bd06e0b4-7dd9-4601-b31f-14f4735ad50d" target="_blank">
+                                <figure>
+                                    <img class="comic__img bd06e0b4-7dd9-4601-b31f-14f4735ad50d" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/bd06e0b4-7dd9-4601-b31f-14f4735ad50d/d231a1a87944aef73d0f3f205f84067ac5e25b4172eea9531d8ed8adcc1dfbaf.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_bd06e0b4-7dd9-4601-b31f-14f4735ad50d" data-params="bd06e0b4-7dd9-4601-b31f-14f4735ad50d" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_bd06e0b4-7dd9-4601-b31f-14f4735ad50d"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=bd06e0b4-7dd9-4601-b31f-14f4735ad50d&type=prev" target="_blank">
+                            <span class="comic__text bd06e0b4-7dd9-4601-b31f-14f4735ad50d">催眠搾乳白〇ノ〇ル パーフェクトパック/Hypnosis Noel</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item bd06e0b4-7dd9-4601-b31f-14f4735ad50d"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-b868017d-5904-4dc8-bfbe-1e25eba13ab3">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=b868017d-5904-4dc8-bfbe-1e25eba13ab3&type=prev" class="b868017d-5904-4dc8-bfbe-1e25eba13ab3" target="_blank">
+                                <figure>
+                                    <img class="comic__img b868017d-5904-4dc8-bfbe-1e25eba13ab3" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/b868017d-5904-4dc8-bfbe-1e25eba13ab3/af2068918602f846f851d31187022286a3ab4677f874d6977b8b5b5ba855a1a6.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_b868017d-5904-4dc8-bfbe-1e25eba13ab3" data-params="b868017d-5904-4dc8-bfbe-1e25eba13ab3" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_b868017d-5904-4dc8-bfbe-1e25eba13ab3"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=b868017d-5904-4dc8-bfbe-1e25eba13ab3&type=prev" target="_blank">
+                            <span class="comic__text b868017d-5904-4dc8-bfbe-1e25eba13ab3">シスタークレアと秘密の催眠アプリ</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item b868017d-5904-4dc8-bfbe-1e25eba13ab3"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604&type=prev" class="29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604" target="_blank">
+                                <figure>
+                                    <img class="comic__img 29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604/5316ed842116b4fd17e6d6a56526da59944d51c45ead429c92176ab5a5a8ff2b.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604" data-params="29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604&type=prev" target="_blank">
+                            <span class="comic__text 29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604">白上と同棲生活</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 29cdd3e1-cbc4-4da9-9cc3-a6f6b9d61604"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-a0b3da1d-6f8d-486a-8d40-ec1de30adca1">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=a0b3da1d-6f8d-486a-8d40-ec1de30adca1&type=prev" class="a0b3da1d-6f8d-486a-8d40-ec1de30adca1" target="_blank">
+                                <figure>
+                                    <img class="comic__img a0b3da1d-6f8d-486a-8d40-ec1de30adca1" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/a0b3da1d-6f8d-486a-8d40-ec1de30adca1/a2b1bdfa2d52a81e98971a584a638003770d8ae6d4a64c8b893b01840a19ed5e.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_a0b3da1d-6f8d-486a-8d40-ec1de30adca1" data-params="a0b3da1d-6f8d-486a-8d40-ec1de30adca1" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_a0b3da1d-6f8d-486a-8d40-ec1de30adca1"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=a0b3da1d-6f8d-486a-8d40-ec1de30adca1&type=prev" target="_blank">
+                            <span class="comic__text a0b3da1d-6f8d-486a-8d40-ec1de30adca1">さとりちゃんとスクールカーディガン</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item a0b3da1d-6f8d-486a-8d40-ec1de30adca1"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-6adb0070-fbf4-4089-b2b4-e97d76deec65">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=6adb0070-fbf4-4089-b2b4-e97d76deec65&type=prev" class="6adb0070-fbf4-4089-b2b4-e97d76deec65" target="_blank">
+                                <figure>
+                                    <img class="comic__img 6adb0070-fbf4-4089-b2b4-e97d76deec65" src="http://cdn.doujinnomori.com/comics/xzzoipjewklsjhfqp4oiq45109rtdtt/6adb0070-fbf4-4089-b2b4-e97d76deec65/5c584b8b750bc239b4dfe568c65bb78b8b94268d8459aaaae4150a63265bf362.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_6adb0070-fbf4-4089-b2b4-e97d76deec65" data-params="6adb0070-fbf4-4089-b2b4-e97d76deec65" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_6adb0070-fbf4-4089-b2b4-e97d76deec65"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=6adb0070-fbf4-4089-b2b4-e97d76deec65&type=prev" target="_blank">
+                            <span class="comic__text 6adb0070-fbf4-4089-b2b4-e97d76deec65">チノちゃんはひとりでできるもん!</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 6adb0070-fbf4-4089-b2b4-e97d76deec65"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-093589f9-2f4c-4adc-bdbc-b8bdb67eb522">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=093589f9-2f4c-4adc-bdbc-b8bdb67eb522&type=prev" class="093589f9-2f4c-4adc-bdbc-b8bdb67eb522" target="_blank">
+                                <figure>
+                                    <img class="comic__img 093589f9-2f4c-4adc-bdbc-b8bdb67eb522" src="http://cdn.doujinnomori.com/comics/klhu8hb8uyighjkb387ouiyhuihh3da/093589f9-2f4c-4adc-bdbc-b8bdb67eb522/bafe3f25822f126c6bc66b2cabae8e41bfda1b9e7279d0f0d12046d2495c0382.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_093589f9-2f4c-4adc-bdbc-b8bdb67eb522" data-params="093589f9-2f4c-4adc-bdbc-b8bdb67eb522" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_093589f9-2f4c-4adc-bdbc-b8bdb67eb522"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=093589f9-2f4c-4adc-bdbc-b8bdb67eb522&type=prev" target="_blank">
+                            <span class="comic__text 093589f9-2f4c-4adc-bdbc-b8bdb67eb522">Prisma☆Collection</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 093589f9-2f4c-4adc-bdbc-b8bdb67eb522"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-81141595-d9c4-4b2b-be88-49b35db4ec7d">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=81141595-d9c4-4b2b-be88-49b35db4ec7d&type=prev" class="81141595-d9c4-4b2b-be88-49b35db4ec7d" target="_blank">
+                                <figure>
+                                    <img class="comic__img 81141595-d9c4-4b2b-be88-49b35db4ec7d" src="http://cdn.doujinnomori.com/comics/nm3r278huiobjhdas78gyibh32adasd/81141595-d9c4-4b2b-be88-49b35db4ec7d/ca41ee38eaba3641e412d5be28197f56c70d395bd31b13da1d6a24b9451b2076.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_81141595-d9c4-4b2b-be88-49b35db4ec7d" data-params="81141595-d9c4-4b2b-be88-49b35db4ec7d" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_81141595-d9c4-4b2b-be88-49b35db4ec7d"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=81141595-d9c4-4b2b-be88-49b35db4ec7d&type=prev" target="_blank">
+                            <span class="comic__text 81141595-d9c4-4b2b-be88-49b35db4ec7d">エロおしくらまんじゅう2</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 81141595-d9c4-4b2b-be88-49b35db4ec7d"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-03bd84b6-9b58-4348-8b1a-6648cd32a95e">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=03bd84b6-9b58-4348-8b1a-6648cd32a95e&type=prev" class="03bd84b6-9b58-4348-8b1a-6648cd32a95e" target="_blank">
+                                <figure>
+                                    <img class="comic__img 03bd84b6-9b58-4348-8b1a-6648cd32a95e" src="http://cdn.doujinnomori.com/comics/k4t9708hnjklashf4jklhf4awfef4fe/03bd84b6-9b58-4348-8b1a-6648cd32a95e/bebe343382bc3e62557e80fc09e509dc4cf758c179c10e235de4f2f2d16678b5.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_03bd84b6-9b58-4348-8b1a-6648cd32a95e" data-params="03bd84b6-9b58-4348-8b1a-6648cd32a95e" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_03bd84b6-9b58-4348-8b1a-6648cd32a95e"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=03bd84b6-9b58-4348-8b1a-6648cd32a95e&type=prev" target="_blank">
+                            <span class="comic__text 03bd84b6-9b58-4348-8b1a-6648cd32a95e">鳩羽つぐのこの娘にしました</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 03bd84b6-9b58-4348-8b1a-6648cd32a95e"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf&type=prev" class="f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf" target="_blank">
+                                <figure>
+                                    <img class="comic__img f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf/da7923763a1502bff294ec80deada264a89c9edb5dece4397cfbf0c335cd8548.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf" data-params="f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf&type=prev" target="_blank">
+                            <span class="comic__text f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf">クロパコ</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item f8fcdbde-107b-440b-8b5f-4e6ab7a4f1cf"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-b0cb8b80-da8b-48fd-8b01-a2019c6935bc">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=b0cb8b80-da8b-48fd-8b01-a2019c6935bc&type=prev" class="b0cb8b80-da8b-48fd-8b01-a2019c6935bc" target="_blank">
+                                <figure>
+                                    <img class="comic__img b0cb8b80-da8b-48fd-8b01-a2019c6935bc" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/b0cb8b80-da8b-48fd-8b01-a2019c6935bc/227411d94008826cc5c6ac2095c7dbecfbe04a4506ba59f288fd0133cda99ec0.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_b0cb8b80-da8b-48fd-8b01-a2019c6935bc" data-params="b0cb8b80-da8b-48fd-8b01-a2019c6935bc" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_b0cb8b80-da8b-48fd-8b01-a2019c6935bc"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=b0cb8b80-da8b-48fd-8b01-a2019c6935bc&type=prev" target="_blank">
+                            <span class="comic__text b0cb8b80-da8b-48fd-8b01-a2019c6935bc">NightHawk XXIX 特典画像</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item b0cb8b80-da8b-48fd-8b01-a2019c6935bc"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-d0383cbe-0f90-46ff-8373-14a84299c5c3">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=d0383cbe-0f90-46ff-8373-14a84299c5c3&type=prev" class="d0383cbe-0f90-46ff-8373-14a84299c5c3" target="_blank">
+                                <figure>
+                                    <img class="comic__img d0383cbe-0f90-46ff-8373-14a84299c5c3" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/d0383cbe-0f90-46ff-8373-14a84299c5c3/5a442126a99e8366db374cad89bc1fd3f912b7f73c681510fa7f38d46a09f94f.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_d0383cbe-0f90-46ff-8373-14a84299c5c3" data-params="d0383cbe-0f90-46ff-8373-14a84299c5c3" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_d0383cbe-0f90-46ff-8373-14a84299c5c3"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=d0383cbe-0f90-46ff-8373-14a84299c5c3&type=prev" target="_blank">
+                            <span class="comic__text d0383cbe-0f90-46ff-8373-14a84299c5c3">びーすとぱこぱこ</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item d0383cbe-0f90-46ff-8373-14a84299c5c3"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-38891277-e2c4-41ad-9bc8-4a35738dc396">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=38891277-e2c4-41ad-9bc8-4a35738dc396&type=prev" class="38891277-e2c4-41ad-9bc8-4a35738dc396" target="_blank">
+                                <figure>
+                                    <img class="comic__img 38891277-e2c4-41ad-9bc8-4a35738dc396" src="http://cdn.doujinnomori.com/comics/vr3287gyiubhjkewqgc8byu32hfdefs/38891277-e2c4-41ad-9bc8-4a35738dc396/2d5c59b9ab77feaabaf5fa4e2d0aa292d3601290ef7b0d58f08cd9f99f55551f.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_38891277-e2c4-41ad-9bc8-4a35738dc396" data-params="38891277-e2c4-41ad-9bc8-4a35738dc396" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_38891277-e2c4-41ad-9bc8-4a35738dc396"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=38891277-e2c4-41ad-9bc8-4a35738dc396&type=prev" target="_blank">
+                            <span class="comic__text 38891277-e2c4-41ad-9bc8-4a35738dc396">ラパンでPeace!</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 38891277-e2c4-41ad-9bc8-4a35738dc396"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-54efd240-84e9-4b30-8411-4b2751fed6f5">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=54efd240-84e9-4b30-8411-4b2751fed6f5&type=prev" class="54efd240-84e9-4b30-8411-4b2751fed6f5" target="_blank">
+                                <figure>
+                                    <img class="comic__img 54efd240-84e9-4b30-8411-4b2751fed6f5" src="http://cdn.doujinnomori.com/comics/iqw8e7yougih3b2jbdea87yuihb3dfs/54efd240-84e9-4b30-8411-4b2751fed6f5/19d0412fe1c3fb635f967e6cb5e5248fe5266e5c943eb9823018880960276e43.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_54efd240-84e9-4b30-8411-4b2751fed6f5" data-params="54efd240-84e9-4b30-8411-4b2751fed6f5" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_54efd240-84e9-4b30-8411-4b2751fed6f5"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=54efd240-84e9-4b30-8411-4b2751fed6f5&type=prev" target="_blank">
+                            <span class="comic__text 54efd240-84e9-4b30-8411-4b2751fed6f5">でび☆えんドンブリ</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 54efd240-84e9-4b30-8411-4b2751fed6f5"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-61a386da-8006-4b9c-89f6-0481c142c32a">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=61a386da-8006-4b9c-89f6-0481c142c32a&type=prev" class="61a386da-8006-4b9c-89f6-0481c142c32a" target="_blank">
+                                <figure>
+                                    <img class="comic__img 61a386da-8006-4b9c-89f6-0481c142c32a" src="http://cdn.doujinnomori.com/comics/ewaflkdjnamfaropijkmal2efmkefew/61a386da-8006-4b9c-89f6-0481c142c32a/c6cde3a6300da6d1d1d8ae42cea435f4397eceacbd7ac26b9628714ff933de2d.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_61a386da-8006-4b9c-89f6-0481c142c32a" data-params="61a386da-8006-4b9c-89f6-0481c142c32a" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_61a386da-8006-4b9c-89f6-0481c142c32a"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=61a386da-8006-4b9c-89f6-0481c142c32a&type=prev" target="_blank">
+                            <span class="comic__text 61a386da-8006-4b9c-89f6-0481c142c32a">マジやばぷにドラ天国</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 61a386da-8006-4b9c-89f6-0481c142c32a"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-e5aa18ba-702d-4ce1-8896-6ab75cb0f615">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=e5aa18ba-702d-4ce1-8896-6ab75cb0f615&type=prev" class="e5aa18ba-702d-4ce1-8896-6ab75cb0f615" target="_blank">
+                                <figure>
+                                    <img class="comic__img e5aa18ba-702d-4ce1-8896-6ab75cb0f615" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/e5aa18ba-702d-4ce1-8896-6ab75cb0f615/a150154e43d22d1161ef4b79e9467b8f9212aa53fc1e0b0a76c97bea390cc0e7.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_e5aa18ba-702d-4ce1-8896-6ab75cb0f615" data-params="e5aa18ba-702d-4ce1-8896-6ab75cb0f615" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_e5aa18ba-702d-4ce1-8896-6ab75cb0f615"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=e5aa18ba-702d-4ce1-8896-6ab75cb0f615&type=prev" target="_blank">
+                            <span class="comic__text e5aa18ba-702d-4ce1-8896-6ab75cb0f615">マジやばぷにドラ天国2</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item e5aa18ba-702d-4ce1-8896-6ab75cb0f615"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-6d7cf407-0e3e-4285-ace9-9a0c002d729d">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=6d7cf407-0e3e-4285-ace9-9a0c002d729d&type=prev" class="6d7cf407-0e3e-4285-ace9-9a0c002d729d" target="_blank">
+                                <figure>
+                                    <img class="comic__img 6d7cf407-0e3e-4285-ace9-9a0c002d729d" src="http://cdn.doujinnomori.com/comics/xzzoipjewklsjhfqp4oiq45109rtdtt/6d7cf407-0e3e-4285-ace9-9a0c002d729d/d34df70ee30ea9d14b97e192421fbc8c279f966578184dd9784e05d3b6649181.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_6d7cf407-0e3e-4285-ace9-9a0c002d729d" data-params="6d7cf407-0e3e-4285-ace9-9a0c002d729d" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_6d7cf407-0e3e-4285-ace9-9a0c002d729d"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=6d7cf407-0e3e-4285-ace9-9a0c002d729d&type=prev" target="_blank">
+                            <span class="comic__text 6d7cf407-0e3e-4285-ace9-9a0c002d729d">マドロスさんちのペドラゴン</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 6d7cf407-0e3e-4285-ace9-9a0c002d729d"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-fb43ab50-a1db-4857-a013-a0a477e07edd">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=fb43ab50-a1db-4857-a013-a0a477e07edd&type=prev" class="fb43ab50-a1db-4857-a013-a0a477e07edd" target="_blank">
+                                <figure>
+                                    <img class="comic__img fb43ab50-a1db-4857-a013-a0a477e07edd" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/fb43ab50-a1db-4857-a013-a0a477e07edd/ebf725ca51ef60b2d066cc26f3603800ae248c0ce4978cd5c5b707b703b15329.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_fb43ab50-a1db-4857-a013-a0a477e07edd" data-params="fb43ab50-a1db-4857-a013-a0a477e07edd" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_fb43ab50-a1db-4857-a013-a0a477e07edd"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=fb43ab50-a1db-4857-a013-a0a477e07edd&type=prev" target="_blank">
+                            <span class="comic__text fb43ab50-a1db-4857-a013-a0a477e07edd">水着サーヴァントとドキドキビーチ</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item fb43ab50-a1db-4857-a013-a0a477e07edd"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-02a18a96-f674-43a0-8b59-e0b531dc0ffc">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=02a18a96-f674-43a0-8b59-e0b531dc0ffc&type=prev" class="02a18a96-f674-43a0-8b59-e0b531dc0ffc" target="_blank">
+                                <figure>
+                                    <img class="comic__img 02a18a96-f674-43a0-8b59-e0b531dc0ffc" src="http://cdn.doujinnomori.com/comics/dafseio3winfaoij4inf4awbncajwew/02a18a96-f674-43a0-8b59-e0b531dc0ffc/53f8f427aa5bf954a81b5c1c88c03d2752ff030a184e332219481c30dcff0062.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_02a18a96-f674-43a0-8b59-e0b531dc0ffc" data-params="02a18a96-f674-43a0-8b59-e0b531dc0ffc" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_02a18a96-f674-43a0-8b59-e0b531dc0ffc"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=02a18a96-f674-43a0-8b59-e0b531dc0ffc&type=prev" target="_blank">
+                            <span class="comic__text 02a18a96-f674-43a0-8b59-e0b531dc0ffc">本能</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 02a18a96-f674-43a0-8b59-e0b531dc0ffc"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-4fc7c6bf-e713-480a-8d65-891aeda2b959">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=4fc7c6bf-e713-480a-8d65-891aeda2b959&type=prev" class="4fc7c6bf-e713-480a-8d65-891aeda2b959" target="_blank">
+                                <figure>
+                                    <img class="comic__img 4fc7c6bf-e713-480a-8d65-891aeda2b959" src="http://cdn.doujinnomori.com/comics/q9uhoiwa4ejkgebkjl43awr9u9piofe/4fc7c6bf-e713-480a-8d65-891aeda2b959/cfd542332f0e42d63f7383ee343bd0458ab139640632eb3f74b58f186914ef3f.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_4fc7c6bf-e713-480a-8d65-891aeda2b959" data-params="4fc7c6bf-e713-480a-8d65-891aeda2b959" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_4fc7c6bf-e713-480a-8d65-891aeda2b959"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=4fc7c6bf-e713-480a-8d65-891aeda2b959&type=prev" target="_blank">
+                            <span class="comic__text 4fc7c6bf-e713-480a-8d65-891aeda2b959">お兄ちゃんがソーシャルゲームにハマってしまったようです</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 4fc7c6bf-e713-480a-8d65-891aeda2b959"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-87796afe-0b17-4907-926c-e43f49b5e708">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=87796afe-0b17-4907-926c-e43f49b5e708&type=prev" class="87796afe-0b17-4907-926c-e43f49b5e708" target="_blank">
+                                <figure>
+                                    <img class="comic__img 87796afe-0b17-4907-926c-e43f49b5e708" src="http://cdn.doujinnomori.com/comics/m328oygubhjdadsg6ybouqwhbfasfdd/87796afe-0b17-4907-926c-e43f49b5e708/24fb5ff6e96bcf758950f81f7b8c38489598e95e3f0e8bdeae2778fe052921d5.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_87796afe-0b17-4907-926c-e43f49b5e708" data-params="87796afe-0b17-4907-926c-e43f49b5e708" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_87796afe-0b17-4907-926c-e43f49b5e708"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=87796afe-0b17-4907-926c-e43f49b5e708&type=prev" target="_blank">
+                            <span class="comic__text 87796afe-0b17-4907-926c-e43f49b5e708">エレナさんで童貞卒業させてもらう本</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 87796afe-0b17-4907-926c-e43f49b5e708"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-425d090d-db93-46f5-af8d-2426333d1002">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=425d090d-db93-46f5-af8d-2426333d1002&type=prev" class="425d090d-db93-46f5-af8d-2426333d1002" target="_blank">
+                                <figure>
+                                    <img class="comic__img 425d090d-db93-46f5-af8d-2426333d1002" src="http://cdn.doujinnomori.com/comics/e34tfn98h4uawiofhkljah389phefre/425d090d-db93-46f5-af8d-2426333d1002/40bbfbcab6f1319b7965fded1d3b52052c4e363f3e7855d0e9ef96203393f5e2.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_425d090d-db93-46f5-af8d-2426333d1002" data-params="425d090d-db93-46f5-af8d-2426333d1002" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_425d090d-db93-46f5-af8d-2426333d1002"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=425d090d-db93-46f5-af8d-2426333d1002&type=prev" target="_blank">
+                            <span class="comic__text 425d090d-db93-46f5-af8d-2426333d1002">心ほぐれる桃源郷 桃の湯</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 425d090d-db93-46f5-af8d-2426333d1002"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-40086742-f619-429a-84e9-198e934a9a2f">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=40086742-f619-429a-84e9-198e934a9a2f&type=prev" class="40086742-f619-429a-84e9-198e934a9a2f" target="_blank">
+                                <figure>
+                                    <img class="comic__img 40086742-f619-429a-84e9-198e934a9a2f" src="http://cdn.doujinnomori.com/comics/dafseio3winfaoij4inf4awbncajwew/40086742-f619-429a-84e9-198e934a9a2f/af8d274ffdc7248e3a7b6105296d0c99dc47fb50a3a98a3b3885b171eafd099f.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_40086742-f619-429a-84e9-198e934a9a2f" data-params="40086742-f619-429a-84e9-198e934a9a2f" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_40086742-f619-429a-84e9-198e934a9a2f"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=40086742-f619-429a-84e9-198e934a9a2f&type=prev" target="_blank">
+                            <span class="comic__text 40086742-f619-429a-84e9-198e934a9a2f">リトルヘイヴン</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 40086742-f619-429a-84e9-198e934a9a2f"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-301a8b83-cd84-470c-957b-6c48d4230486">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=301a8b83-cd84-470c-957b-6c48d4230486&type=prev" class="301a8b83-cd84-470c-957b-6c48d4230486" target="_blank">
+                                <figure>
+                                    <img class="comic__img 301a8b83-cd84-470c-957b-6c48d4230486" src="http://cdn.doujinnomori.com/comics/ewaflkdjnamfaropijkmal2efmkefew/301a8b83-cd84-470c-957b-6c48d4230486/dc9a72530a022d0923446c68cbdbff95de0587e6f5a515819f6a7633d1da9d29.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_301a8b83-cd84-470c-957b-6c48d4230486" data-params="301a8b83-cd84-470c-957b-6c48d4230486" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_301a8b83-cd84-470c-957b-6c48d4230486"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=301a8b83-cd84-470c-957b-6c48d4230486&type=prev" target="_blank">
+                            <span class="comic__text 301a8b83-cd84-470c-957b-6c48d4230486">西荻窪にて…</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 301a8b83-cd84-470c-957b-6c48d4230486"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-1bd16f5c-01cc-4a6a-ac71-0580f88bbe21">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=1bd16f5c-01cc-4a6a-ac71-0580f88bbe21&type=prev" class="1bd16f5c-01cc-4a6a-ac71-0580f88bbe21" target="_blank">
+                                <figure>
+                                    <img class="comic__img 1bd16f5c-01cc-4a6a-ac71-0580f88bbe21" src="http://cdn.doujinnomori.com/comics/ewaflkdjnamfaropijkmal2efmkefew/1bd16f5c-01cc-4a6a-ac71-0580f88bbe21/e3a8e4d2fa9bef183d8a2e3ffca9ba7b20c921dbf25c6b9d59fc0006421cde14.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_1bd16f5c-01cc-4a6a-ac71-0580f88bbe21" data-params="1bd16f5c-01cc-4a6a-ac71-0580f88bbe21" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_1bd16f5c-01cc-4a6a-ac71-0580f88bbe21"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=1bd16f5c-01cc-4a6a-ac71-0580f88bbe21&type=prev" target="_blank">
+                            <span class="comic__text 1bd16f5c-01cc-4a6a-ac71-0580f88bbe21">放課後のタチバナさん</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 1bd16f5c-01cc-4a6a-ac71-0580f88bbe21"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-363cd4e0-7144-4887-9919-f12b0f54a8e2">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=363cd4e0-7144-4887-9919-f12b0f54a8e2&type=prev" class="363cd4e0-7144-4887-9919-f12b0f54a8e2" target="_blank">
+                                <figure>
+                                    <img class="comic__img 363cd4e0-7144-4887-9919-f12b0f54a8e2" src="http://cdn.doujinnomori.com/comics/k4t9708hnjklashf4jklhf4awfef4fe/363cd4e0-7144-4887-9919-f12b0f54a8e2/ad0bd144a66687268751da288e257168caed0f6a7cf65cfde9caae442e1988c9.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_363cd4e0-7144-4887-9919-f12b0f54a8e2" data-params="363cd4e0-7144-4887-9919-f12b0f54a8e2" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_363cd4e0-7144-4887-9919-f12b0f54a8e2"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=363cd4e0-7144-4887-9919-f12b0f54a8e2&type=prev" target="_blank">
+                            <span class="comic__text 363cd4e0-7144-4887-9919-f12b0f54a8e2">渚のチマハメ隊</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 363cd4e0-7144-4887-9919-f12b0f54a8e2"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-5130e620-1371-42c0-bba9-cb6ecf5cf409">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=5130e620-1371-42c0-bba9-cb6ecf5cf409&type=prev" class="5130e620-1371-42c0-bba9-cb6ecf5cf409" target="_blank">
+                                <figure>
+                                    <img class="comic__img 5130e620-1371-42c0-bba9-cb6ecf5cf409" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/5130e620-1371-42c0-bba9-cb6ecf5cf409/0810e8dbd1f285532e418fdc7f1eb6a42aadfdf8d9d5bfaea8272f7388b51b24.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_5130e620-1371-42c0-bba9-cb6ecf5cf409" data-params="5130e620-1371-42c0-bba9-cb6ecf5cf409" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_5130e620-1371-42c0-bba9-cb6ecf5cf409"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=5130e620-1371-42c0-bba9-cb6ecf5cf409&type=prev" target="_blank">
+                            <span class="comic__text 5130e620-1371-42c0-bba9-cb6ecf5cf409">魔王はみんなの慰み者</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 5130e620-1371-42c0-bba9-cb6ecf5cf409"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="comic__item list-866666d2-1b6f-4759-b44d-2c05014d215e">
+                        <div class="comic__figure">
+                            <a href="/comics/detail?uuid=866666d2-1b6f-4759-b44d-2c05014d215e&type=prev" class="866666d2-1b6f-4759-b44d-2c05014d215e" target="_blank">
+                                <figure>
+                                    <img class="comic__img 866666d2-1b6f-4759-b44d-2c05014d215e" src="http://cdn.doujinnomori.com/comics/xzzoipjewklsjhfqp4oiq45109rtdtt/866666d2-1b6f-4759-b44d-2c05014d215e/a9f8af35e064ca47544345ea602ad43bacc5ddfc6b76c6f3e09bae6d06d974aa.jpg">
+                                </figure>
+                            </a>
+                            <span class="comic__fav favorite_span_866666d2-1b6f-4759-b44d-2c05014d215e" data-params="866666d2-1b6f-4759-b44d-2c05014d215e" onclick="changeFavoriteStatus(this)">
+                        <i class="fas fa-star favorite_i_866666d2-1b6f-4759-b44d-2c05014d215e"></i>登録
+                    </span>
+                        </div>
+                        <a href="/comics/detail?uuid=866666d2-1b6f-4759-b44d-2c05014d215e&type=prev" target="_blank">
+                            <span class="comic__text 866666d2-1b6f-4759-b44d-2c05014d215e">檻の中のイリヤちゃん</span>
+                            <ul class="comic__tags">
+                                <li class="comic__tags--item 866666d2-1b6f-4759-b44d-2c05014d215e"></li>
+                            </ul>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <nav id="breadcrumbs" class="breadcrumb">
+                <ol class="breadcrumb__list">
+                    <li class="breadcrumb__item">
+                        <a href="/" class="breadcrumb__link">
+                            TOP                </a>
+                    </li>
+                    <li class="breadcrumb__item">
+                        <a href="/products" class="breadcrumb__link">
+                            原作                </a>
+                    </li>
+                    <li class="breadcrumb__item">
+                        <a href="/comics/search?type=1&id=1620" class="breadcrumb__link">
+                            バーチャルYouTuber                </a>
+                    </li>
+                    <li class="breadcrumb__item">
+                        <a href="/comics/detail?uuid=9a06d4af-872b-4874-b3b0-5f18ee4efaf6&type=prev" class="breadcrumb__link">
+                            すいちゃんの可愛くてちょっとエッチなイラスト本                </a>
+                    </li>
+                </ol>
+            </nav>
+
+            <div class="ad_margin">
+                <div align="center">
+                    <!--  ad tags Size: 300x250 ZoneId:90007112-->
+                    <script type="text/javascript" src="https://js.waqool.com/t/007/112/a90007112.js"></script>
+                    <!--  ad tags Size: 300x250 ZoneId:90007156-->
+                    <script type="text/javascript" src="https://js.waqool.com/t/007/156/a90007156.js"></script>
+                </div></div>
+
+
+        </main>
+
+        <aside id="sidebar">
+            <script>
+    var isLead;
+    var data = [];
+    $(document).ready(function () {
+        var form = $("#freeword-serach-form_1");
+
+        if (!isLead || isLead == undefined) {
+            isLead = true;
+            $.ajax({
+                url: '/api/suggest',
+                type: 'get',
+                dataType: 'json',
+                scriptCharset: 'utf-8',
+                async: true
+            }).done(function (response) {
+                data = response;
+            }).fail(function (response) {
+                console.log(response);
+            });
+        }
+        $('#freeword-search-box_1').autocomplete({
+            source: function (request, response) {
+
+                var results = $.grep(data, function (elem, index) {
+                    return kanaToHira(elem.n.toLowerCase()).indexOf(kanaToHira(request.term.toLowerCase())) === 0;
+                });
+                // response(results.slice(0, this.options.maxResults));
+                results = results.slice(0, this.options.maxResults);
+
+                var datamap = results.map(function (i) {
+                    return {
+                        label: i.n + ' | ' + i.tn,
+                        value: i.n,
+                        id: i.i,
+                        type: i.ti
+                    }
+                });
+                response(datamap);
+            },
+            maxResults: 5,
+            autoFocus: true,
+            position: {
+                my: 'left+0 top+4',
+            },
+            delay: 500,
+            minLength: 1,
+            select: function (event, ui) {
+                if (ui.item != null) {
+                    form.find('#freeword-search-id').val(ui.item.id);
+                    form.find('#freeword-search-type').val(ui.item.type);
+                    form.find("#freeword-search-box_1").val(ui.item.value);
+                    form.submit();
+                }
+            }
+        });
+        $('#freeword-search-box_1').keypress(function () {
+            form.find('#freeword-search-id').val(null);
+            form.find('#freeword-search-type').val(null);
+        });
+
+        function kanaToHira (str) {
+            return str.replace(/[\u30a1-\u30f6]/g, function (match) {
+                var chr = match.charCodeAt(0) - 0x60;
+                return String.fromCharCode(chr);
+            })
+        }
+
+        form.submit(function () {
+            if (form.find('#freeword-search-id').val() === '' &&
+                form.find('#freeword-search-type').val() === '') {
+                form.find('#freeword-search-type').attr('disabled', 'disabled');
+                form.find('#freeword-search-id').attr('disabled', 'disabled');
+                form.attr('action', '/comics/free-search');
+            } else {
+
+                form.find('#freeword-search-type').removeAttr('disabled');
+                form.find('#freeword-search-id').removeAttr('disabled');
+                form.attr('action', '/comics/search');
+            }
+        });
+
+    });
+
+    // クッキーに保存する
+    function registerSearchHistoryFromSidebar () {
+        let date = new Date();
+        cookieKey = 'history-' + date.getTime();
+        searchWordElm = document.getElementsByClassName('search__box__sidebar');
+        cookieValue = searchWordElm[0].value;
+        document.cookie = cookieKey + "=" + cookieValue;
+    }
+
+</script>
+
+
+            <div class="ad_margin">
+            </div>
+
+            <form class="search" action="/comics/free-search" method="get" id="freeword-serach-form_1" onsubmit="return registerSearchHistoryFromSidebar()">
+                <input type="hidden" id="freeword-search-type" name="type"/>
+                <input type="hidden" id="freeword-search-id" name="id"/>
+                <input type="search" id="freeword-search-box_1" name="keyword" value="" placeholder="キーワードを入力" class="search__box search__box__sidebar" required>
+                <button type="submit" class="search__button" id="freeword-search" value="検索"><i class="fas fa-search"></i></button>
+            </form>
+
+            <script>
+    // フローチャート
+    // 履歴がある場合
+    // 0. cookieに検索履歴が存在した場合は登録し、削除する
+    // 1. 検索した履歴をローカルストレージから取得する
+    // 2. 取得する際に登録件数が6件以上の場合、削除する
+    // 3. タイムスタンプ順にオブジェクトを並び替える
+    // 4. 並び替えたオブジェクトを表示する
+    $(document).ready(function () {
+        let cookiesArr = document.cookie.split("; ");
+        let searchHistoryFromCookie = {
+            url: '',
+            word: '',
+            createdAt: ''
+        };
+        let searchHistoryList = [];
+        // 検索履歴のデータをローカルストレージから取得する
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key) && key.indexOf('history-') === 0) {
+                searchHistoryList.push(JSON.parse(localStorage.getItem(key)));
+            }
+        }
+        // オブジェクトをorder順に並び替える
+        searchHistoryList.sort(sortObjects('createdAt', 'desc'));
+
+        // cookieの検索履歴登録
+        // ただし、すでに登録されている検索ワードは登録しない
+        for (let cookie of cookiesArr) {
+            if (cookie.indexOf('history-') === 0) {
+                let cookieTimestampAndWord = cookie.replace('history-', '');
+                let cookieArr = cookieTimestampAndWord.split('=');
+                let existedWord = false;
+                for (let searchHistory of searchHistoryList) {
+                    if (searchHistory.word === cookieArr[1]) {
+                        existedWord = true
+                    }
+                }
+                if (existedWord === false) {
+                    searchHistoryFromCookie.url = '/comics/free-search?keyword=' + cookieArr[1];
+                    searchHistoryFromCookie.word = cookieArr[1];
+                    searchHistoryFromCookie.createdAt = cookieArr[0];
+                    localStorage.setItem('history-' + cookieArr[0], JSON.stringify(searchHistoryFromCookie));
+                    searchHistoryList.unshift(searchHistoryFromCookie);
+                }
+                document.cookie = "history-" + cookieArr[0] + "=; max-age=0"
+            }
+        }
+
+        // 履歴は5個まで
+        if (searchHistoryList.length >= 6) {
+            let targetKey = 'history-' + searchHistoryList[5].createdAt;
+            console.log('targetKey', targetKey)
+            localStorage.removeItem(targetKey);
+            searchHistoryList.pop();
+        }
+
+        let pgdat = '';
+        if (!searchHistoryList.length) {
+            pgdat += '<li class="link-group__item">';
+            pgdat += '<a class="link-group__link">';
+            pgdat += '<span>検索履歴はありません。</span>';
+            pgdat += '</a>';
+            pgdat += '</li>';
+        } else {
+            for (let searchHistory of searchHistoryList) {
+                pgdat += '<li class="link-group__item">';
+                pgdat += '<a class="link-group__link" href="' + searchHistory.url + '">';
+                pgdat += '<span>' + searchHistory.word + '</span><i class="fas fa-angle-right"></i>';
+                pgdat += '</a>';
+                pgdat += '</li>';
+            }
+        }
+
+        $('#sidebar-show-history').append(pgdat);
+    });
+
+    function sortObjects(key, order='asc') {
+        return function(a, b) {
+            if(!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+                // property doesn't exist on either object
+                return 0;
+            }
+
+            const varA = (typeof a[key] === 'string') ?
+                a[key].toUpperCase() : a[key];
+            const varB = (typeof b[key] === 'string') ?
+                b[key].toUpperCase() : b[key];
+
+            let comparison = 0;
+            if (varA > varB) {
+                comparison = 1;
+            } else if (varA < varB) {
+                comparison = -1;
+            }
+            return (
+                (order == 'desc') ? (comparison * -1) : comparison
+            );
+        };
+    }
+</script>
+
+            <div class="tab">
+                <input id="sidebar-btn-soaring" type="radio" name="sidebar-tabs" class="tab__switch" checked="checked" />
+                <input id="sidebar-btn-popularity" type="radio" name="sidebar-tabs" class="tab__switch">
+                <input id="sidebar-btn-history" type="radio" name="sidebar-tabs" class="tab__switch">
+
+                <ul class="tab__btn">
+                    <li class="tab__label1"><label for="sidebar-btn-soaring">話題</label></li>
+                    <li class="tab__label2"><label for="sidebar-btn-popularity">人気・定番</label></li>
+                    <li class="tab__label3"><label for="sidebar-btn-history">履歴</label></li>
+                </ul>
+
+                <ul id="sidebar-show-soaring" class="link-group__list">
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=3&id=655">
+                            <span>2020夏イベント</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="http://doujinnomori.com/comics/search?type=1&id=1198">
+                            <span>Re:ゼロから始める異世界生活</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=1&id=2326">
+                            <span>彼女、お借りします</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=1&id=2007">
+                            <span>宇崎ちゃんは遊びたい!</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=2&id=16093">
+                            <span>北条加蓮</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="sidebar-show-popularity" class="link-group__list">
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=3&id=261">
+                            <span>寝取られ(NTR)</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=3&id=614">
+                            <span>催眠・洗脳</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=3&id=355">
+                            <span>快楽堕ち</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=3&id=463">
+                            <span>イチャラブ・あまあま</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=3&id=199">
+                            <span>フルカラー</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="sidebar-show-history" class="link-group__list">
+                    <!--<li class="link-group__item">
+                        <a class="link-group__link" href="/comics/search?type=3&id=614">
+                            <span>催眠・洗脳</span><i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+            <div class="box-wrap">
+                <ul class="box-wrap__list">
+                    <h3 class="heading3"><span class="heading3__text">相互リンク</span></h3>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://ecchi-island.com/" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/ecchi-island.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">Ecchi Island</div>
+                                <div class="box__text">エロ同人作品がいっぱいのエッチな島でヌキヌキライフを楽しもう！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://hentai-tanker.com/" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/hentai-tanker.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">Hentai Tanker</div>
+                                <div class="box__text">人気ランキングや原作別検索などが楽しめる優良サイト！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://bishobisho-manga.com/" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/bishobisho-manga.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">bisho-bisho-manga</div>
+                                <div class="box__text">エッチな漫画が毎日更新される無料サイト！毎日チェックが欠かせない！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://henti-night.com/" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/hentai-night.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">Hentai-Night</div>
+                                <div class="box__text">毎日新着同人誌をチェック！人気最新作が盛りだくさんのサイトです。</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://nukinukicomic.com" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/nukinuki-comic.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">Nukinuki Comic</div>
+                                <div class="box__text">このサイトでヌキまくろう！優良同人誌がラクラク読めちゃいます♪</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://hentai-station.com/" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/hentai-station.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">Hentai Station</div>
+                                <div class="box__text">エロ同人誌を読むならココ！人気ランキングでおすすめ作品を漁ろう！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://doeromanga.com" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/doero-manga.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">DoERO MANGA</div>
+                                <div class="box__text">最新作品をイッキ読み！1タップで簡単に同人誌を読もう！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="https://ecchi-comics.com/" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/ecchi-comics.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">Ecchi-Comics</div>
+                                <div class="box__text">同人誌が毎日更新されて簡単&無料で読めちゃうおすすめサイトです</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="http://dd-smart.net/" target="_blank" rel="noopener">
+                            <figure class="box__left">
+                                <img class="box__img" src="/content/img/smart.jpg">
+                            </figure>
+                            <div class="box__right">
+                                <div class="box__title">同人すまーと</div>
+                                <div class="box__text">毎日24冊以上の最新同人誌を更新！約60000冊の中から過去の名作や最新作をDL&閲覧できます♪ </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-wrap">
+                <ul class="box-wrap__list">
+                    <h3 class="heading3"><span class="heading3__text">人気シリーズ</span></h3>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=656">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/ba6353ab-8247-4d76-8649-6eb471fbec88/17207c455cb75a989f2201b0a309c922b5b19b9c7a89ec09802455823059fcbc.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">女子大生南ことりのヤリサー事件簿</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: ラブライブ！</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: 第6基地</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜5作品</div>
+                                <div class="box__text">女子大生になったことりちゃんが入ったサークルに実はヤリサーで・・・。チャラい先輩に無理やり酒を飲まされて男達の肉便器にされてしまう!?</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=657">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/k4t9708hnjklashf4jklhf4awfef4fe/063cd990-93b0-43de-be9d-7e1009f272f7/aa2f583848551f2f44e47c7aa82a73b134d85eaf2568ffd99700e65eb4972929.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">ウルトラビーストなんてなかった</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: ポケットモンスター</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: 熟成角砂糖</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__red">完結 全4作品</div>
+                                <div class="box__text">快楽に堕ちてチ◯ポ狂いになったルザミーネがリーリエを巻き込んで・・・。NTRや調教モノが好きな人におすすめな人気シリーズです！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=658">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/cc8f6bcf-9140-4166-8ef2-25829c2f96a9/f22e8a5f2faa5aed54a4b88544b69bc1ae8dcf5a4f17bf076ae55ad164ae3de2.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">こんなにも愛おしい</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: アイドルマスターシンデレラガールズ</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: N×Cてるみっと</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜6作品</div>
+                                <div class="box__text">文香は本気でプロデューサーに恋をして肉体関係を持ってしまい・・・。甘い描写や肉肉しく描かれた身体が魅力の人気シリーズ！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=659">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/f252526b-2076-4860-a66f-0c9027220f7e/df3dfc25da80685dcf5eb851512402249f80fc96ee5b2cd47053ce87c91d6cc2.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">たわわなあの娘</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: 月曜日のたわわ</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: アカペンギン</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜3作品</div>
+                                <div class="box__text">淫乱JKアイちゃんがショタくんを弄んじゃう月曜日のたわわの人気シリーズ！後輩ちゃんシリーズもおすすめです！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=660">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/vdahuiofdsF3fdefeklj3hr98oihjol/48c9fe8d-fbc8-4b5d-b1c8-4cc76e11c97a/4085c7a669fd4ff1442d425a5a6402bf0c74e3b1e35130695e9aabd1e0581d03.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">ショタがためにベルは鳴る</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: アズールレーン</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: たか々屋</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜3作品</div>
+                                <div class="box__text">おねショタ好きにおすすめ！ドスケベメイド衣装のベルファストがショタ指揮官くんにHなご奉仕をしてあげる人気シリーズ！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=661">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/a2204c36-666e-4bf2-8208-5d485e04960c/9b4b24e440a48877a8a10e34292061683bedeb0a74b0213421809d45b3ecb19e.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">リトさんのハーレム性活</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: To LOVEる</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: BBG</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜9作品</div>
+                                <div class="box__text">リトさんのハーレム性活を描いた人気シリーズ！何人ものヒロインが登場し、ToLOVEる好きには間違いない鉄板の作品です！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=662">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/dafseio3winfaoij4inf4awbncajwew/2b30e2d9-5478-4fb1-93f9-4c4cbb993ce0/2315b19ddc29364625094e4b6375b410c05afc923e0ce3233ab7dedf852f2f11.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">魔法少女催眠パコパコーズ</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: Fate/kaleid liner プリズマ☆イリヤ</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者:乱視と君と。</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜7作品</div>
+                                <div class="box__text">魔法少女イリヤちゃんは催眠おじさんにチ◯ポで調教されてしまい・・・。ロリ&催眠調教モノが好きな方におすすめの人気シリーズ！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=663">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/fdjkyiuuio3y489uhihr3uiohjfdowe/0307d82a-fa56-4ae8-8c12-a6472688ed1a/9ebf4e8453454cb242807a969744fd34f740d5636c8897252c3695a12366ff78.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">やはり俺は変態ラブコメがいい。</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: </span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: 拡張パーツ</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__red">完結 全4作品</div>
+                                <div class="box__text">雪乃や結衣がメインの人気シリーズ！アニメのシチュや雰囲気が再現されているので、原作・アニメファンにおすすめの作品です！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=664">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/jklhasdfy78uoih32re8wyguhb32rwd/52a8d417-43bf-4327-a9ff-dcce847ee1ab/e50feaa5bb570bb1593160766e0220dd2c08d652aef1556ad07f7f6213b117d6.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">ONE-HURRICANE</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: ワンパンマン</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: 清炭ハリケーン</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜8作品</div>
+                                <div class="box__text">クオリティの高い絵が魅力！タツマキやフブキがサイタマや怪人とセックスしたりするワンパンマンの人気シリーズが現在8作品あります！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=665">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/e34tfn98h4uawiofhkljah389phefre/945a8994-5811-40f4-90f3-989aa95bc781/6f441ae44251a0d6fb30b27146a3a918b60471e47b2b39720501e82cdb17d0d5.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">俺の彼女は小悪魔ココアさん。</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: あろまてらす</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: ご注文はうさぎですか?</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜4作品</div>
+                                <div class="box__text">フルカラーで楽しめる！彼女になったココアちゃんとのイチャイチャプレイが描かれているごちうさの人気シリーズです！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=666">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/aewhjklhewreakjrhawefawopefkjwf/b868017d-5904-4dc8-bfbe-1e25eba13ab3/af2068918602f846f851d31187022286a3ab4677f874d6977b8b5b5ba855a1a6.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">シスタークレアと秘密の催眠アプリ</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: バーチャルYouTuber</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: Frenchletter</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜2作品</div>
+                                <div class="box__text">にじさんじのシスタークレアが催眠アプリで男の言いなりになって、Hな欲望を無理やり叶えさせられてしまう催眠調教シリーズ！</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="box-wrap__item">
+                        <a class="box"  href="/comics/search?type=3&id=667">
+                            <div class="box__left">
+                                <img class="box__img" src="http://cdn.doujinnomori.com/comics/dafseio3winfaoij4inf4awbncajwew/362dbb5b-9f84-49ae-b6e9-011d9ab7c96e/5538b060ae804915545f463319fc82c826aa150ad6000e780080f1cd00c0d658.jpg">
+                            </div>
+                            <div class="box__right">
+                                <div class="box__title">ももかよいつま</div>
+                                <!--                    <div class="box__lead">-->
+                                <!--                        <span class="box__lead&#45;&#45;left">原作: アイドルマスターシンデレラガールズ</span>-->
+                                <!--                        <span class="box__lead&#45;&#45;right">作者: Horizontal World</span>-->
+                                <!--                    </div>-->
+                                <div class="box__caption bgcolor__blue">進行中 〜3作品</div>
+                                <div class="box__text">プロデューサーの家に通って仲良く関係を築いていた桃華。ある時、その関係は一変してしまい・・・。桃華とPのあまあまセックスライフが描かれた人気シリーズ!!</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+
+    <footer id="footer" itemscope="" itemtype="http://schema.org/WPFooter">
+        <span>© 2020 同人の森</span>
+        <a href="/cdn-cgi/l/email-protection#a5c1cad0cfcccbcbcac8cad7cce5d1d0d1c4cbcad1c48bc6cac8" class="footer__link">お問い合わせ</a>
+    </footer>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
