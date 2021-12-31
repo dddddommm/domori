@@ -17,8 +17,8 @@ repositories {
 }
 
 application {
-//    mainClassName = ''
-//    mainModule = ''
+    mainClassName = 'com.github.dom.domori.app.Main'
+    mainModule = 'com.github.dom.domori'
 }
 
 dependencies {

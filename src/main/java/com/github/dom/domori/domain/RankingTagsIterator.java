@@ -1,4 +1,4 @@
-package com.github.dojinnomori.domain;
+package com.github.dom.domori.domain;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -27,7 +27,7 @@ public class RankingTagsIterator implements Iterator<List<ComicTag>> {
 
     public RankingTagsIterator(RankingTerms term, DelayController delayController) {
         this.term = term;
-        this.startUrl = String.format(EndPoints.TAGS_RANKING_URL, term.getTerm());
+        this.startUrl = String.format(EndPoints.TAGS_RANKING_FORMAT, term.getTerm());
         this.delayController = delayController;
     }
 

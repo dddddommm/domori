@@ -1,4 +1,4 @@
-package com.github.dojinnomori.domain;
+package com.github.dom.domori.domain;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ public class DelayController {
 
     private int counter = -1;
 
-    public void delay() {
+    public synchronized void delay() {
         counter++;
         if (counter < interval)
             return;

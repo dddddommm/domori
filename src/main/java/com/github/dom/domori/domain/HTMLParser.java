@@ -1,4 +1,4 @@
-package com.github.dojinnomori.domain;
+package com.github.dom.domori.domain;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

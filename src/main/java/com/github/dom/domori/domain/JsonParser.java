@@ -1,4 +1,4 @@
-package com.github.dojinnomori.domain;
+package com.github.dom.domori.domain;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

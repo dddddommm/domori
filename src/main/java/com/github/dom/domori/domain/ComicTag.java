@@ -1,4 +1,4 @@
-package com.github.dojinnomori.domain;
+package com.github.dom.domori.domain;
 
 import java.util.Objects;
 
@@ -39,5 +39,14 @@ public class ComicTag {
     @Override
     public int hashCode() {
         return Objects.hash(title, tagId, type);
+    }
+
+    @Override
+    public String toString() {
+        return "ComicTag{" +
+                "title='" + title + '\'' +
+                ", tagId=" + tagId +
+                ", type=" + type +
+                '}';
     }
 }

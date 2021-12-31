@@ -1,4 +1,4 @@
-package com.github.dojinnomori.domain;
+package com.github.dom.domori.domain;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,16 +13,16 @@ import java.util.List;
 /**
  * タグ、作品名、キャラクター名による検索
  */
-public class TagSearchIterator implements Iterator<List<Comic>> {
+public class KeywordSearchIterator implements Iterator<List<Comic>> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TagSearchIterator.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KeywordSearchIterator.class);
 
-    private final ComicTag tag;
+    private final String keyword;
 
     private final DelayController delayController;
 
-    public TagSearchIterator(ComicTag tag, DelayController delayController) {
-        this.tag = tag;
+    public KeywordSearchIterator(String keyword, DelayController delayController) {
+        this.keyword = keyword;
         this.delayController = delayController;
     }
 
@@ -49,15 +49,7 @@ public class TagSearchIterator implements Iterator<List<Comic>> {
     }
 
     private List<Comic> firstPage() {
-        String url;
-        switch (tag.getType()) {
-            case PRODUCT -> url = String.format(EndPoints.FIRST_PAGE_TAG_COMICS_FORMAT, 1, tag.getTagId());
-            case CHARACTER -> url = String.format(EndPoints.FIRST_PAGE_TAG_COMICS_FORMAT, 2, tag.getTagId());
-            case PLAIN -> url = String.format(EndPoints.FIRST_PAGE_TAG_COMICS_FORMAT, 3, tag.getTagId());
-            default -> {
-                return Collections.emptyList();
-            }
-        }
+        String url = String.format(EndPoints.FIRST_PAGE_FREE_SEARCH_FORMAT, keyword);
 
         try {
             Document document = Jsoup.connect(url).userAgent(Constants.USER_AGENT).get();
@@ -73,15 +65,7 @@ public class TagSearchIterator implements Iterator<List<Comic>> {
     }
 
     private List<Comic> afterPage() {
-        String url;
-        switch (tag.getType()) {
-            case PRODUCT -> url = String.format(EndPoints.AFTER_PAGE_TAG_COMICS_FORMAT, 1, tag.getTagId(), currentPage);
-            case CHARACTER -> url = String.format(EndPoints.AFTER_PAGE_TAG_COMICS_FORMAT, 2, tag.getTagId(), currentPage);
-            case PLAIN -> url = String.format(EndPoints.AFTER_PAGE_TAG_COMICS_FORMAT, 3, tag.getTagId(), currentPage);
-            default -> {
-                return Collections.emptyList();
-            }
-        }
+        String url = String.format(EndPoints.AFTER_PAGE_FREE_SEARCH_FORMAT, keyword, currentPage);
 
         try {
             Document document = Jsoup.connect(url).userAgent(Constants.USER_AGENT).get();

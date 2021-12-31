@@ -3,7 +3,7 @@ package test.jsoup;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.dojinnomori.domain.*;
+import com.github.dom.domori.domain.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -35,7 +35,7 @@ public class ParseTest {
 //        containsNextPage();
 //        containsPreviousPage();
 //        lastPage();
-        getPDF();
+//        getPDF();
 
 //        TagSearchIterator search = new TagSearchIterator(new ComicTag(17455, "謎のヒロインなんとか", TagTypes.CHARACTER), delayController);
 //        while (search.hasNext()) {
@@ -52,6 +52,16 @@ public class ParseTest {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+
+        try {
+            HTMLParser parser = new HTMLParser();
+            Document doc = Jsoup.connect("http://doujinnomori.com/ranking/products?term=weekly").get();
+
+            parser.parseRankingTags(doc).forEach(t -> System.out.println(t));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void parseContentList() {
@@ -276,33 +286,6 @@ public class ParseTest {
         System.out.println(last.select("a").attr("abs:href"));
 
         System.out.println("done lastPage");
-    }
-
-    private static void getPDF() {
-        String url = "http://doujinnomori.com/comics/ewaflkdjnamfaropijkmal2efmkefew/541cce2b-5b7f-47aa-855c-5fffdfaa29bf/50318b125f5ce8c8ff6270efb73d86d9f4d8ae9fac9a13a6dedad78946d190ab.pdf";
-
-        Path savePath = Paths.get("C:\\Users\\owner\\Downloads\\a.pdf");
-
-        HttpClient client = HttpClient.newHttpClient();
-
-        // create request
-        HttpRequest request = HttpRequest.newBuilder(URI.create(url)).build();
-
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
-
-            System.out.println(response.statusCode());
-            System.out.println(response.headers());
-
-            try (InputStream is = response.body(); OutputStream os = Files.newOutputStream(savePath)) {
-                is.transferTo(os);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 }

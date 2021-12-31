@@ -1,4 +1,4 @@
-package com.github.dojinnomori.domain;
+package com.github.dom.domori.domain;
 
 public class EndPoints {
 
@@ -47,13 +47,27 @@ public class EndPoints {
     public static final String CRAWL_COMICS_API_FORMAT = "http://doujinnomori.com/api/ranking-comics?page=%d&term=%s";
 
     /**
-     * タグランキング
+     * %d - ページ番号
+     * %s - 期間
      */
-    public static final String TAGS_RANKING_URL = "http://doujinnomori.com/ranking/tags?term=%s";
+    public static final String CRAWL_PRODUCTS_API_FORMAT = "http://doujinnomori.com/api/ranking-products?page=%d&term=%s";
 
     /**
+     * %s - 期間
+     * タグランキング
+     */
+    public static final String TAGS_RANKING_FORMAT = "http://doujinnomori.com/ranking/tags?term=%s";
+
+    /**
+     * %s - 期間
      * コミックランキング
      */
-    public static final String COMICS_RANKING_URL = "http://doujinnomori.com/ranking/comics?term=%s";
+    public static final String COMICS_RANKING_FORMAT = "http://doujinnomori.com/ranking/comics?term=%s";
+
+    /**
+     * %s - 期間
+     * 原作ランキング
+     */
+    public static final String PRODUCTS_RANKING_FORMAT = "http://doujinnomori.com/ranking/products?term=%s";
 
 }
